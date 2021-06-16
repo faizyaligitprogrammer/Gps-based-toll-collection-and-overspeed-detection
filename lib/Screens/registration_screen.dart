@@ -187,7 +187,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         return "please enter your email id.";
                       }
                     },
-                    style: TextStyle(color: Colors.black54),
+                    style: TextStyle(color: Colors.black54), 
                     onChanged: (value) {
                       //Do something with the user input.
                     },
@@ -262,14 +262,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         onPressed: () async {
                           if (_formkey.currentState.validate()) {
                             print(name);
-                            // print();
-                            // print();
+                            print(regNo);
+                            print(chassisNo);
+                            print(emailId);
+                            print(phoneNo);
                             var client = http.Client();
                             try {
-                              var url = Uri.parse('http://localhost:3000/users/register');
-                              //var response = await http.post(url, body: {'username': _uname, 'password': _pwd});
-                              //print('Response status: ${response.statusCode}');
-                              //print('Response body: ${response.body}');
+                              var url = Uri.parse('http://localhost:3000/users/register_user');
+                              var response = await http.post(url, body: {'name': name, 'regNo': regNo,'chassisNo':chassisNo,'emailId':emailId,'phoneNumber':phoneNo});
+                              print('Response status: ${response.statusCode}');
+                              print('Response body: ${response.body}');
                             } catch (e) {
                               debugPrint("something went wrong");
                               throw e.toString();
