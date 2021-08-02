@@ -1,6 +1,6 @@
 # sukhad_yathra
 
-A new Flutter application.
+A new Android application.
 
 ## Getting Started
 
